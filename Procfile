@@ -1,0 +1,1 @@
+web: gunicorn "aplikacja:create_app()"

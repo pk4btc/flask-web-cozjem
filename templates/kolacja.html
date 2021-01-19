@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+
+
+
+{% block content %}
+
+    <div class="container">
+    <section class="hero is-medium is-warning is-bold">
+                <div class="columns">
+               <div class="column is-half">
+                   <div class="tile is-parent">
+                       <article class="tile is-child notification is-danger">
+                           <p class="title"> {{kolacja}}</p>
+                       </article>
+                   </div>
+
+
+
+
+
+
+               </div>
+
+                <div class="column is-half">
+         <figure class="image is-4by3">
+       <img  class="is-rounded " src ="{{kolacjaImg}}"</img>
+         </figure>
+                </div>
+                </div>
+    </section>
+    </div>
+
+ {% endblock %}

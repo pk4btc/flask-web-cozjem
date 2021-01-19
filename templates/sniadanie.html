@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+
+
+
+<div class="container">
+<div class="columns">
+	<div class="column is-half">
+		<div class="tile is-parent">
+			<article class="tile is-child notification is-danger">
+				<p class="title">Sniadanko {{sniadanieHtml}}</p>
+				<p class="subtitle">opis sdniadanko</p>
+				<div class="content">
+					Przygotowanie jakies
+				</div>
+			</article>
+		</div>
+	</div>
+
+	<div class="column is-half">
+		<figure class="image is-4by3">
+			<img  class="is-rounded " src="{{sniadanieImgHtml}}"/>
+		</figure>
+
+	</div>
+
+</div>
+</div>
+
+
+{% endblock %}
