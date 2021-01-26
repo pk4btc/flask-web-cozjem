@@ -1,7 +1,8 @@
 from flask import Flask, render_template
 from contentfromweb import content_foods,content_breakfast
 from pymongo import MongoClient
-import json
+from random import randrange
+
 
 
 
@@ -17,7 +18,7 @@ def create_app():
 
     @app.route('/')
     def index():
-            return render_template('index.html')
+        return render_template('index.html')
 
     @app.route('/sniadanie')
     def sniadanie():
@@ -27,8 +28,10 @@ def create_app():
         # sniadanieImg= content_breakfast.tabSniadanieImg['sniadanieImg'][1]
 
         lista =[e for e in app.db.sniadanie.find({})]
-        x1=lista[0]['sniadanie'][1]
-        z2=lista[1]['sniadanieImg'][1]
+        zakresLosowania=len(lista[0]['sniadanie'])
+        wylosowana = randrange(0,zakresLosowania)
+        x1=lista[0]['sniadanie'][wylosowana]
+        z2=lista[1]['sniadanieImg'][wylosowana]
 
         return render_template('sniadanie.html',sniadanieHtml=x1,sniadanieImgHtml=z2)
 
@@ -37,16 +40,23 @@ def create_app():
     def obiadek():
 
         lista =[e for e in app.db.obiad.find({})]
-        x=lista[0]['obiadek'][1]
-        z=lista[1]['obiadekImg'][1]
+        zakresLosowania=len(lista[0]['obiadek'])
+        wylosowana = randrange(0,zakresLosowania)
+        x=lista[0]['obiadek'][wylosowana]
+        z=lista[1]['obiadekImg'][wylosowana]
 
         return render_template('obiadek.html',obrazy=z,nazwa=x)
 
     @app.route('/kolacja')
     def kolacja():
         lista =[e for e in app.db.kolacja.find({})]
-        kolacja=lista[0]['kolacja'][1]
-        kolacjaImg=lista[1]['kolacjaImg'][1]
+        zakresLosowania=len(lista[0]['kolacja'])
+        wylosowana = randrange(0,zakresLosowania)
+
+        kolacja=lista[0]['kolacja'][wylosowana]
+        kolacjaImg=lista[1]['kolacjaImg'][wylosowana]
+
+
 
         return render_template('kolacja.html',kolacja=kolacja,kolacjaImg=kolacjaImg)
 
