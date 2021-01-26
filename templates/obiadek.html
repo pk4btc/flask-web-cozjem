@@ -7,7 +7,14 @@
 <div class="columns">
     <div class="column">
         <div class="tile is-parent">
-            <article class="tile is-child notification is-danger">
+            <article id="jumpToTitle" class="tile is-child notification is-danger">
+							{% if scroll %}
+								<script>
+									document.getElementById('{{ scroll }}').scrollIntoView();
+									// or
+									document.location.hash = '#' + '{{ scroll }}';
+								</script>
+							{% endif %}
                 <p class="title">{{nazwa}}</p>
                 <div class="content">
                     Przygotowanie jakies

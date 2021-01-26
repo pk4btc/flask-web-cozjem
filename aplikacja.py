@@ -33,7 +33,7 @@ def create_app():
         x1=lista[0]['sniadanie'][wylosowana]
         z2=lista[1]['sniadanieImg'][wylosowana]
 
-        return render_template('sniadanie.html',sniadanieHtml=x1,sniadanieImgHtml=z2)
+        return render_template('sniadanie.html',sniadanieHtml=x1,sniadanieImgHtml=z2,scroll="jumpToTitle")
 
 
     @app.route('/obiadek')
@@ -45,7 +45,7 @@ def create_app():
         x=lista[0]['obiadek'][wylosowana]
         z=lista[1]['obiadekImg'][wylosowana]
 
-        return render_template('obiadek.html',obrazy=z,nazwa=x)
+        return render_template('obiadek.html',obrazy=z,nazwa=x,scroll="jumpToTitle")
 
     @app.route('/kolacja')
     def kolacja():
@@ -58,7 +58,7 @@ def create_app():
 
 
 
-        return render_template('kolacja.html',kolacja=kolacja,kolacjaImg=kolacjaImg)
+        return render_template('kolacja.html',kolacja=kolacja,kolacjaImg=kolacjaImg,scroll="jumpToTitle")
 
 
 

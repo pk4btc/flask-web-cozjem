@@ -9,7 +9,14 @@
 <div class="columns">
 	<div class="column is-half">
 		<div class="tile is-parent">
-			<article class="tile is-child notification is-danger">
+			<article id="jumpToTitle" class="tile is-child notification is-danger">
+							{% if scroll %}
+								<script>
+									document.getElementById('{{ scroll }}').scrollIntoView();
+									// or
+									document.location.hash = '#' + '{{ scroll }}';
+								</script>
+							{% endif %}
 				<p class="title">Sniadanko {{sniadanieHtml}}</p>
 				<p class="subtitle">opis sdniadanko</p>
 				<div class="content">
